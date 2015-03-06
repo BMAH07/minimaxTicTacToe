@@ -1,6 +1,6 @@
 # minimaxTicTacToe
 
-Executable Jar file: http://goo.gl/NY4vRI
+Executable Jar file: http://goo.gl/4mXUq9
 
 This is a human vs computer version of tic tac toe written in Java. 
 All the source files are contained in this repo as well as a Jar file that can be run on its own 
