@@ -1,1 +1,1 @@
-web:    java -cp target/classes:target/dependency/* Game
+web: 	java -cp target/classes ttt/Game
