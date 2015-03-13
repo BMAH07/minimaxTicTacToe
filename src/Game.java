@@ -35,6 +35,7 @@ import java.awt.Font;                                                 // Font fo
 import java.awt.GridLayout;                                           // Grid for window object
 import java.awt.event.MouseEvent;                                     // Mouse event actions for window object
 import java.awt.event.MouseListener;                                  // Mouse listener for window object
+import java.io.Console;
 
 import javax.swing.JButton;                                           // GUI for buttons
 import javax.swing.JFrame;                                            // Frame inside window
@@ -49,7 +50,7 @@ public class Game {
 
       @Override
       public void run() {                                             // Construction of obj. and all game interaction
-        JFrame frame = new JFrame("JavaTTT");                         // Instantiate new JFrame
+        final JFrame frame = new JFrame("JavaTTT");                         // Instantiate new JFrame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);         // End execution when JFrame is closed
         frame.setLayout(new GridLayout(3, 3));                        // Create grid in frame
         final Game game = new Game();                                 // Instantiate static constant instance of Game
@@ -92,7 +93,16 @@ public class Game {
                   } else {                                            // If it's tie
                     message = "It's a draw. What a surprise!";        // Create tie message
                   }
-                  JOptionPane.showMessageDialog(null, message);       // Display message in pop-up dialog box
+                  message += "\n\nWant to play again? (No will quit)";
+                  int n = JOptionPane.showConfirmDialog(frame,        // Display message in pop-up dialog box
+                      message, "GAME OVER",                           // Box title is GAME OVER
+                      JOptionPane.YES_NO_OPTION);                     // Option to replay or quit
+                  System.out.println("" + n);
+                  if (n == 0) {                                       // If yes, reset the game
+                    run();
+                  } else if (validMove) {                             // If no, quit the game
+                    System.exit(0);
+                  }
                 }
               }
             }
